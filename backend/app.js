@@ -16,12 +16,14 @@ var app = express();
 
 var server = http.createServer(app);
 
+var bcrypt = require('bcrypt');
+
 
 // all environments
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-app.use(express.basicAuth("admin", 'admin'));
+//app.use(express.basicAuth("admin", 'admin'));
 app.use(express.favicon());
 app.use(express.logger('dev'));
 app.use(express.json());
@@ -33,19 +35,45 @@ app.use(express.query());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
-mongoose.connect("mongodb://jtubert:cb7978@ds031877.mongolab.com:31877/jtubert");
+mongoose.connect("mongodb://freshlybakedapps:Nelson12345@dbh62.mongolab.com:27627/pithy");
+
+//POST using curl
+//curl --include -X POST -H "Content-Type: application/json" -d '{"username":"xyz","email":"xyz","password":"xyz","date":"xyz"}' http://localhost:3000/users
+
+//GET all messages
+//curl --include -X GET http://localhost:3000/users
 
 var User = app.user = restful.model('user', mongoose.Schema({
-    facebookId: 'string',    
-    name: 'string',
-    date: 'date'
+    username: 'string',
+    email: 'string',
+    password: 'string',
+    date: 'string'
   }))
   .methods(['get', 'post', 'put', 'delete'])
   .after('get',function(req, res, next){
-    console.log(">>>>>>>>>>> "+res.locals.bundle);
+    //console.log(">>>>>>>>>>> "+res.locals.bundle[0].password);
+    
+    // Load hash from your password DB.
+    var passwordHash = res.locals.bundle[0].password;
+    bcrypt.compare('xyz', passwordHash, function(err, res) {
+        console.log(res);
+    });
     //sendMessage(res.locals.bundle);  
     next();
+  })
+  .before('post', hash_password)
+  .before('put', hash_password);
+
+
+//https://github.com/ncb000gt/node.bcrypt.js/
+function hash_password(req, res, next) {
+  bcrypt.genSalt(10, function(err, salt) {
+      bcrypt.hash(req.body.password, salt, function(err, hash) {
+          req.body.password = hash;
+          next();
+      });
   });
+}
 
 User.register(app, '/users');
 
