@@ -12,7 +12,8 @@
     "mongodb": "0.9.x",
     "mongoose": "*",
     "node-restful": "^0.1.16",
-    "bcrypt": "*"
+    "bcrypt": "*",
+    "nodemon": "*"
   },
   "devDependencies": {
     "node-restful": "^0.1.16"

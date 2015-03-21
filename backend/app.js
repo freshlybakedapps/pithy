@@ -2,21 +2,21 @@
 /**
  * Module dependencies.
  */
-
 var express = require('express');
 var routes = require('./routes');
 var http = require('http');
 var path = require('path');
 var connect = require('connect');
+
 var mongo = require('mongodb');
+//https://github.com/baugarten/node-restful
 var restful = require('node-restful');
 var mongoose = restful.mongoose;
 
 var app = express();
 
-var server = http.createServer(app);
 
-var bcrypt = require('bcrypt');
+var server = http.createServer(app);
 
 
 // all environments
@@ -37,45 +37,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 mongoose.connect("mongodb://freshlybakedapps:Nelson12345@dbh62.mongolab.com:27627/pithy");
 
-//POST using curl
-//curl --include -X POST -H "Content-Type: application/json" -d '{"username":"xyz","email":"xyz","password":"xyz","date":"xyz"}' http://localhost:3000/users
-
-//GET all messages
-//curl --include -X GET http://localhost:3000/users
-
-var User = app.user = restful.model('user', mongoose.Schema({
-    username: 'string',
-    email: 'string',
-    password: 'string',
-    date: 'string'
-  }))
-  .methods(['get', 'post', 'put', 'delete'])
-  .after('get',function(req, res, next){
-    //console.log(">>>>>>>>>>> "+res.locals.bundle[0].password);
-    
-    // Load hash from your password DB.
-    var passwordHash = res.locals.bundle[0].password;
-    bcrypt.compare('xyz', passwordHash, function(err, res) {
-        console.log(res);
-    });
-    //sendMessage(res.locals.bundle);  
-    next();
-  })
-  .before('post', hash_password)
-  .before('put', hash_password);
-
-
-//https://github.com/ncb000gt/node.bcrypt.js/
-function hash_password(req, res, next) {
-  bcrypt.genSalt(10, function(err, salt) {
-      bcrypt.hash(req.body.password, salt, function(err, hash) {
-          req.body.password = hash;
-          next();
-      });
-  });
-}
-
-User.register(app, '/users');
+//create restful endpoint
+var users = require('./users');
+users.init(app,mongoose,restful);
 
 
 if ('development' == app.get('env')) {
