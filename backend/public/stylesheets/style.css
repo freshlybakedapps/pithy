@@ -1,0 +1,32 @@
+body {
+  margin: 0;
+  padding: 10px 10px 10px 50px;
+  font: 14px Helvetica, Arial, sans-serif;
+  color: #fff;
+  background: #ec2203 none;
+}
+
+.main .content {
+	padding: 0px 60px;
+}
+
+.main .content p {
+	font-size: 3em;
+	color: #f28e7f;
+}
+
+.main .content:first-child {
+	background: transparent url(/images/disc.png) 0 9px no-repeat;
+}
+
+.main .content:first-child p strong {
+	color: #fff;
+}
+
+a {
+  color: #00B7FF;
+}
+
+li {
+	margin-bottom:20px;
+}
