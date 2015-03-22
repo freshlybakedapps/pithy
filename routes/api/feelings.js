@@ -97,3 +97,36 @@ exports.remove = function(req, res) {
 		
 	});
 }
+
+
+/**
+ * Increase counter by 1
+ */
+exports.increaseCount = function(req, res) {
+	Feeling.model.findById(req.params.id).exec(function (err, item) {
+		
+		if (err) return res.apiError('database error', err);
+		if (!item) return res.apiError('not found');
+		
+		item.count++;
+
+		
+		var data = {
+		    title: item.title,
+		    count: item.count,
+		    createdAt: Date.now,
+		    publishedAt: Date.now,
+		}
+
+		item.getUpdateHandler(req).process(data, function(err) {
+			
+			if (err) return res.apiError('create error', err);
+			
+			res.apiResponse({
+				feelings: item
+			});
+			
+		});
+		
+	});
+}
