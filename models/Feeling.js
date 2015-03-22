@@ -10,10 +10,12 @@ var Feeling = new keystone.List('Feeling', {
 Feeling.add({
     title: { type: String, required: true },
     count: {type: Number, required: true, default: 0},
+    femaleCount: {type: Number, default: 0},
+    maleCount: {type: Number, default: 0},
     createdAt: { type: Date, default: Date.now },
     publishedAt: Date,
     
 });
  
-Feeling.defaultColumns = 'title, count, publishedAt|15%'
+Feeling.defaultColumns = 'title, count, femaleCount, maleCount, publishedAt|15%'
 Feeling.register();
