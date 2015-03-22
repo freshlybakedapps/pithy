@@ -42,30 +42,13 @@ var users = require('./users');
 users.init(app,mongoose,restful);
 
 
+
+
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
 app.get('/', routes.index);
-
-
-
-
-/*
-var getMessage = function(userData, reqExit) {
-    var m = null;
-    var is_exit = (typeof reqExit === "undefined") ? false : reqExit;
-    User.find({ facebookId: userData.facebookId },function(err,users){       
-        var m = null;
-        Message.find(function(err,messages){
-          var rand=Math.floor(Math.random() * messages.length);
-          m=messages[rand];
-          console.log(">>>>>>>>>>> "+is_exit);
-          io.sockets.emit('message', {user:users[0],message:m, userExited:is_exit});  
-        });      
-    });
-}
-*/
 
 server.listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
