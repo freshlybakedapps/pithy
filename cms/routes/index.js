@@ -38,6 +38,7 @@ exports = module.exports = function(app) {
 	// Views
 	app.get('/', routes.views.index);
 
+	//how to add a topic via the terminal
 	//curl --include -X POST -H "Content-Type: application/json" -d '{"title":"Amin Torres"}' http://localhost:3000/api/topic/create
 	
 	app.get('/api/topic', keystone.middleware.api, routes.api.topics.list);
