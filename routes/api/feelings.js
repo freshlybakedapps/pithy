@@ -7,6 +7,17 @@ var Feeling = keystone.list('Feeling');
  * List Feeling
  */
 exports.list = function(req, res) {
+
+	Feeling.model.find().populate('topic').exec(function(err, items) {
+	    if (err) return res.apiError('database error', err);
+		
+		res.apiResponse({
+			feelings: items
+		});
+	});
+
+
+	/*
 	Feeling.model.find(function(err, items) {
 		
 		if (err) return res.apiError('database error', err);
@@ -16,13 +27,14 @@ exports.list = function(req, res) {
 		});
 		
 	});
+	*/
 }
 
 /**
  * Get Feeling by ID
  */
 exports.get = function(req, res) {
-	Feeling.model.findById(req.params.id).exec(function(err, item) {
+	Feeling.model.findById(req.params.id).populate('topic').exec(function(err, item) {
 		
 		if (err) return res.apiError('database error', err);
 		if (!item) return res.apiError('not found');
