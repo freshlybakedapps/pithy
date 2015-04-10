@@ -123,6 +123,12 @@ exports = module.exports = function(app) {
 	// then bind that middleware in your routes before any paths
 	// that should be protected
 	app.all('/api*', checkAPIKey);
+
+	app.get('/api/vote', keystone.middleware.api, routes.api.votes.list);
+	app.all('/api/vote/create', keystone.middleware.api, routes.api.votes.create);
+	app.get('/api/vote/:id', keystone.middleware.api, routes.api.votes.get);
+	app.all('/api/vote/:id/update', keystone.middleware.api, routes.api.votes.update);
+	app.get('/api/vote/:id/remove', keystone.middleware.api, routes.api.votes.remove); 
 	 
 	app.get('/api/topic', keystone.middleware.api, routes.api.topics.list);
 	app.all('/api/topic/create', keystone.middleware.api, routes.api.topics.create);

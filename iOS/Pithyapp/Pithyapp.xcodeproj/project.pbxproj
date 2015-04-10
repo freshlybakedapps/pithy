@@ -1,0 +1,460 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1D78AC521AD33A9E002F41C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D78AC511AD33A9E002F41C2 /* AppDelegate.swift */; };
+		1D78AC541AD33A9E002F41C2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D78AC531AD33A9E002F41C2 /* ViewController.swift */; };
+		1D78AC571AD33A9E002F41C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D78AC551AD33A9E002F41C2 /* Main.storyboard */; };
+		1D78AC591AD33A9E002F41C2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D78AC581AD33A9E002F41C2 /* Images.xcassets */; };
+		1D78AC5C1AD33A9E002F41C2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D78AC5A1AD33A9E002F41C2 /* LaunchScreen.xib */; };
+		1D78AC681AD33A9E002F41C2 /* PithyappTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D78AC671AD33A9E002F41C2 /* PithyappTests.swift */; };
+		1D78AC751AD33B7D002F41C2 /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D78AC721AD33B7D002F41C2 /* TwitterKit.framework */; };
+		1D78AC761AD33B7D002F41C2 /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1D78AC731AD33B7D002F41C2 /* TwitterKitResources.bundle */; };
+		1D78AC771AD33B7D002F41C2 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D78AC741AD33B7D002F41C2 /* Fabric.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1D78AC621AD33A9E002F41C2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1D78AC441AD33A9E002F41C2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1D78AC4B1AD33A9E002F41C2;
+			remoteInfo = Pithyapp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1D78AC4C1AD33A9E002F41C2 /* Pithyapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pithyapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D78AC501AD33A9E002F41C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1D78AC511AD33A9E002F41C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1D78AC531AD33A9E002F41C2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1D78AC561AD33A9E002F41C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1D78AC581AD33A9E002F41C2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		1D78AC5B1AD33A9E002F41C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		1D78AC611AD33A9E002F41C2 /* PithyappTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PithyappTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D78AC661AD33A9E002F41C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1D78AC671AD33A9E002F41C2 /* PithyappTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PithyappTests.swift; sourceTree = "<group>"; };
+		1D78AC721AD33B7D002F41C2 /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = SOURCE_ROOT; };
+		1D78AC731AD33B7D002F41C2 /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle; sourceTree = SOURCE_ROOT; };
+		1D78AC741AD33B7D002F41C2 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1D78AC491AD33A9E002F41C2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D78AC751AD33B7D002F41C2 /* TwitterKit.framework in Frameworks */,
+				1D78AC771AD33B7D002F41C2 /* Fabric.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1D78AC5E1AD33A9E002F41C2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1D78AC431AD33A9E002F41C2 = {
+			isa = PBXGroup;
+			children = (
+				1D78AC4E1AD33A9E002F41C2 /* Pithyapp */,
+				1D78AC641AD33A9E002F41C2 /* PithyappTests */,
+				1D78AC4D1AD33A9E002F41C2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1D78AC4D1AD33A9E002F41C2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1D78AC4C1AD33A9E002F41C2 /* Pithyapp.app */,
+				1D78AC611AD33A9E002F41C2 /* PithyappTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1D78AC4E1AD33A9E002F41C2 /* Pithyapp */ = {
+			isa = PBXGroup;
+			children = (
+				1D78AC721AD33B7D002F41C2 /* TwitterKit.framework */,
+				1D78AC731AD33B7D002F41C2 /* TwitterKitResources.bundle */,
+				1D78AC741AD33B7D002F41C2 /* Fabric.framework */,
+				1D78AC511AD33A9E002F41C2 /* AppDelegate.swift */,
+				1D78AC531AD33A9E002F41C2 /* ViewController.swift */,
+				1D78AC551AD33A9E002F41C2 /* Main.storyboard */,
+				1D78AC581AD33A9E002F41C2 /* Images.xcassets */,
+				1D78AC5A1AD33A9E002F41C2 /* LaunchScreen.xib */,
+				1D78AC4F1AD33A9E002F41C2 /* Supporting Files */,
+			);
+			path = Pithyapp;
+			sourceTree = "<group>";
+		};
+		1D78AC4F1AD33A9E002F41C2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1D78AC501AD33A9E002F41C2 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1D78AC641AD33A9E002F41C2 /* PithyappTests */ = {
+			isa = PBXGroup;
+			children = (
+				1D78AC671AD33A9E002F41C2 /* PithyappTests.swift */,
+				1D78AC651AD33A9E002F41C2 /* Supporting Files */,
+			);
+			path = PithyappTests;
+			sourceTree = "<group>";
+		};
+		1D78AC651AD33A9E002F41C2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1D78AC661AD33A9E002F41C2 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1D78AC4B1AD33A9E002F41C2 /* Pithyapp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D78AC6B1AD33A9E002F41C2 /* Build configuration list for PBXNativeTarget "Pithyapp" */;
+			buildPhases = (
+				1D78AC481AD33A9E002F41C2 /* Sources */,
+				1D78AC491AD33A9E002F41C2 /* Frameworks */,
+				1D78AC4A1AD33A9E002F41C2 /* Resources */,
+				1D78AC711AD33B1B002F41C2 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Pithyapp;
+			productName = Pithyapp;
+			productReference = 1D78AC4C1AD33A9E002F41C2 /* Pithyapp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1D78AC601AD33A9E002F41C2 /* PithyappTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D78AC6E1AD33A9E002F41C2 /* Build configuration list for PBXNativeTarget "PithyappTests" */;
+			buildPhases = (
+				1D78AC5D1AD33A9E002F41C2 /* Sources */,
+				1D78AC5E1AD33A9E002F41C2 /* Frameworks */,
+				1D78AC5F1AD33A9E002F41C2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1D78AC631AD33A9E002F41C2 /* PBXTargetDependency */,
+			);
+			name = PithyappTests;
+			productName = PithyappTests;
+			productReference = 1D78AC611AD33A9E002F41C2 /* PithyappTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1D78AC441AD33A9E002F41C2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "John Tubert";
+				TargetAttributes = {
+					1D78AC4B1AD33A9E002F41C2 = {
+						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = 62ZQN87A2T;
+					};
+					1D78AC601AD33A9E002F41C2 = {
+						CreatedOnToolsVersion = 6.1;
+						TestTargetID = 1D78AC4B1AD33A9E002F41C2;
+					};
+				};
+			};
+			buildConfigurationList = 1D78AC471AD33A9E002F41C2 /* Build configuration list for PBXProject "Pithyapp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1D78AC431AD33A9E002F41C2;
+			productRefGroup = 1D78AC4D1AD33A9E002F41C2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1D78AC4B1AD33A9E002F41C2 /* Pithyapp */,
+				1D78AC601AD33A9E002F41C2 /* PithyappTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1D78AC4A1AD33A9E002F41C2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D78AC761AD33B7D002F41C2 /* TwitterKitResources.bundle in Resources */,
+				1D78AC571AD33A9E002F41C2 /* Main.storyboard in Resources */,
+				1D78AC5C1AD33A9E002F41C2 /* LaunchScreen.xib in Resources */,
+				1D78AC591AD33A9E002F41C2 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1D78AC5F1AD33A9E002F41C2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1D78AC711AD33B1B002F41C2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 5ab7520f91d77a8fe3075421e0bb0e49998a6311 1b14542ec29078434d55f6a79f259cda5eb588a66ce67814739d42fb687b6ce8";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1D78AC481AD33A9E002F41C2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D78AC541AD33A9E002F41C2 /* ViewController.swift in Sources */,
+				1D78AC521AD33A9E002F41C2 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1D78AC5D1AD33A9E002F41C2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D78AC681AD33A9E002F41C2 /* PithyappTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1D78AC631AD33A9E002F41C2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1D78AC4B1AD33A9E002F41C2 /* Pithyapp */;
+			targetProxy = 1D78AC621AD33A9E002F41C2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1D78AC551AD33A9E002F41C2 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1D78AC561AD33A9E002F41C2 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		1D78AC5A1AD33A9E002F41C2 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1D78AC5B1AD33A9E002F41C2 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1D78AC691AD33A9E002F41C2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1D78AC6A1AD33A9E002F41C2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1D78AC6C1AD33A9E002F41C2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = Pithyapp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		1D78AC6D1AD33A9E002F41C2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = Pithyapp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		1D78AC6F1AD33A9E002F41C2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = PithyappTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pithyapp.app/Pithyapp";
+			};
+			name = Debug;
+		};
+		1D78AC701AD33A9E002F41C2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = PithyappTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pithyapp.app/Pithyapp";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1D78AC471AD33A9E002F41C2 /* Build configuration list for PBXProject "Pithyapp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D78AC691AD33A9E002F41C2 /* Debug */,
+				1D78AC6A1AD33A9E002F41C2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1D78AC6B1AD33A9E002F41C2 /* Build configuration list for PBXNativeTarget "Pithyapp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D78AC6C1AD33A9E002F41C2 /* Debug */,
+				1D78AC6D1AD33A9E002F41C2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		1D78AC6E1AD33A9E002F41C2 /* Build configuration list for PBXNativeTarget "PithyappTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D78AC6F1AD33A9E002F41C2 /* Debug */,
+				1D78AC701AD33A9E002F41C2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1D78AC441AD33A9E002F41C2 /* Project object */;
+}
