@@ -91,7 +91,8 @@ keystone.set('nav', {
 	'users': 'users',
 	'topics': 'topics',
 	'feelings': 'feelings',
-	'votes': 'votes'
+	'votes': 'votes',
+	'appusers': 'appusers'
 });
 
 // Start Keystone to connect to your database and initialise the web server

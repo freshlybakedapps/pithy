@@ -1,54 +1,33 @@
 var async = require('async'),
 	keystone = require('keystone');
 
-var Vote = keystone.list('Vote');
+var Appuser = keystone.list('Appuser');
 
 /**
- * List Vote
+ * List Appuser
  */
 exports.list = function(req, res) {
 
-	if(req.query.user){
-		
-
-		//http://localhost:3000/api/vote/?apiKey=Nelson12345&user=550df5d4d42c5c2a79d142b3
-
-
-		//only return votes by this user
-		Vote.model.find().where('user', req.query.user).populate('topic feeling').exec(function(err, items) {
-		    if (err) return res.apiError('database error', err);
-			
-			res.apiResponse({
-				votes: items
-			});
-		});
-	}else{
-		Vote.model.find().populate('topic feeling').exec(function(err, items) {
+	Appuser.model.find().exec(function(err, items) {
 	    if (err) return res.apiError('database error', err);
 		
 		res.apiResponse({
-			votes: items
+			appuser: items
 		});
 	});
-	}
-
-	
-
-
-	
 }
 
 /**
- * Get Vote by ID
+ * Get Appuser by ID
  */
 exports.get = function(req, res) {
-	Vote.model.findById(req.params.id).populate('topic feeling').exec(function(err, item) {
+	Appuser.model.findById(req.params.id).exec(function(err, item) {
 		
 		if (err) return res.apiError('database error', err);
 		if (!item) return res.apiError('not found');
 		
 		res.apiResponse({
-			votes: item
+			appuser: item
 		});
 		
 	});
@@ -56,11 +35,11 @@ exports.get = function(req, res) {
 
 
 /**
- * Create a Vote
+ * Create a Appuser
  */
 exports.create = function(req, res) {
 	
-	var item = new Vote.model(),
+	var item = new Appuser.model(),
 		data = (req.method == 'POST') ? req.body : req.query;
 	
 	item.getUpdateHandler(req).process(data, function(err) {
@@ -68,17 +47,17 @@ exports.create = function(req, res) {
 		if (err) return res.apiError('error', err);
 		
 		res.apiResponse({
-			votes: item
+			appuser: item
 		});
 		
 	});
 }
 
 /**
- * Get Post by ID
+ * Get Appuser by ID
  */
 exports.update = function(req, res) {
-	Vote.model.findById(req.params.id).exec(function(err, item) {
+	Appuser.model.findById(req.params.id).exec(function(err, item) {
 		
 		if (err) return res.apiError('database error', err);
 		if (!item) return res.apiError('not found');
@@ -90,7 +69,7 @@ exports.update = function(req, res) {
 			if (err) return res.apiError('create error', err);
 			
 			res.apiResponse({
-				votes: item
+				appusers: item
 			});
 			
 		});
@@ -99,10 +78,10 @@ exports.update = function(req, res) {
 }
 
 /**
- * Delete Post by ID
+ * Delete Appuser by ID
  */
 exports.remove = function(req, res) {
-	Vote.model.findById(req.params.id).exec(function (err, item) {
+	Appuser.model.findById(req.params.id).exec(function (err, item) {
 		
 		if (err) return res.apiError('database error', err);
 		if (!item) return res.apiError('not found');

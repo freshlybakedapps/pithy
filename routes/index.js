@@ -124,7 +124,21 @@ exports = module.exports = function(app) {
 	// that should be protected
 	app.all('/api*', checkAPIKey);
 
+	app.get('/api/appuser', keystone.middleware.api, routes.api.appusers.list);
+	app.all('/api/appuser/create', keystone.middleware.api, routes.api.appusers.create);
+	app.get('/api/appuser/:id', keystone.middleware.api, routes.api.appusers.get);
+	app.all('/api/appuser/:id/update', keystone.middleware.api, routes.api.appusers.update);
+	app.get('/api/appuser/:id/remove', keystone.middleware.api, routes.api.appusers.remove); 
+
 	app.get('/api/vote', keystone.middleware.api, routes.api.votes.list);
+
+	app.get('/api/vote/gender/:gender', keystone.middleware.api, routes.api.votes.gender);
+	app.get('/api/vote/feeling/:feeling', keystone.middleware.api, routes.api.votes.feeling);
+
+	app.get('/api/vote/:topic/gender/:gender', keystone.middleware.api, routes.api.votes.topicgender);
+	app.get('/api/vote/:topic/feeling/:feeling', keystone.middleware.api, routes.api.votes.topicfeeling);
+
+
 	app.all('/api/vote/create', keystone.middleware.api, routes.api.votes.create);
 	app.get('/api/vote/:id', keystone.middleware.api, routes.api.votes.get);
 	app.all('/api/vote/:id/update', keystone.middleware.api, routes.api.votes.update);
