@@ -132,9 +132,9 @@ exports = module.exports = function(app) {
 
 	app.get('/api/vote', keystone.middleware.api, routes.api.votes.list);
 
+
 	app.get('/api/vote/gender/:gender', keystone.middleware.api, routes.api.votes.gender);
 	app.get('/api/vote/feeling/:feeling', keystone.middleware.api, routes.api.votes.feeling);
-
 	app.get('/api/vote/:topic/gender/:gender', keystone.middleware.api, routes.api.votes.topicgender);
 	app.get('/api/vote/:topic/feeling/:feeling', keystone.middleware.api, routes.api.votes.topicfeeling);
 
