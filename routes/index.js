@@ -134,9 +134,9 @@ exports = module.exports = function(app) {
 
 
 	app.get('/api/vote/gender/:gender', keystone.middleware.api, routes.api.votes.gender);
-	app.get('/api/vote/feeling/:feeling', keystone.middleware.api, routes.api.votes.feeling);
+	app.get('/api/vote/reaction/:reaction', keystone.middleware.api, routes.api.votes.reaction);
 	app.get('/api/vote/:topic/gender/:gender', keystone.middleware.api, routes.api.votes.topicgender);
-	app.get('/api/vote/:topic/feeling/:feeling', keystone.middleware.api, routes.api.votes.topicfeeling);
+	app.get('/api/vote/:topic/reaction/:reaction', keystone.middleware.api, routes.api.votes.topicreaction);
 
 
 	app.all('/api/vote/create', keystone.middleware.api, routes.api.votes.create);
@@ -150,13 +150,13 @@ exports = module.exports = function(app) {
 	app.all('/api/topic/:id/update', keystone.middleware.api, routes.api.topics.update);
 	app.get('/api/topic/:id/remove', keystone.middleware.api, routes.api.topics.remove); 
 
-	app.get('/api/feeling', keystone.middleware.api, routes.api.feelings.list);
-	app.all('/api/feeling/create', keystone.middleware.api, routes.api.feelings.create);
-	app.get('/api/feeling/:id', keystone.middleware.api, routes.api.feelings.get);
-	app.all('/api/feeling/:id/update', keystone.middleware.api, routes.api.feelings.update);
-	app.get('/api/feeling/:id/remove', keystone.middleware.api, routes.api.feelings.remove); 
+	app.get('/api/reaction', keystone.middleware.api, routes.api.reactions.list);
+	app.all('/api/reaction/create', keystone.middleware.api, routes.api.reactions.create);
+	app.get('/api/reaction/:id', keystone.middleware.api, routes.api.reactions.get);
+	app.all('/api/reaction/:id/update', keystone.middleware.api, routes.api.reactions.update);
+	app.get('/api/reaction/:id/remove', keystone.middleware.api, routes.api.reactions.remove); 
 
-	app.all('/api/feeling/:id/increaseCount', keystone.middleware.api, routes.api.feelings.increaseCount);
+	app.all('/api/reaction/:id/increaseCount', keystone.middleware.api, routes.api.reactions.increaseCount);
 	
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);

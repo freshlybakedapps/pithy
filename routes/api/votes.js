@@ -21,7 +21,7 @@ exports.list = function(req, res) {
 
 	//http://localhost:3000/api/vote/?apiKey=Nelson12345&populate=true
 	if(req.query.populate == "true"){
-		populate = 'topic feeling appuser';
+		populate = 'topic reaction appuser';
 	}
 
 	//only return votes by this user
@@ -66,7 +66,7 @@ exports.topicgender = function(req, res) {
 
 	
 	var query = {};
-	var populate = 'topic feeling appuser';
+	var populate = 'topic reaction appuser';
 	
 	//http://localhost:3000/api/vote/?apiKey=Nelson12345&user=550df5d4d42c5c2a79d142b3
 	if(req.query.user){
@@ -98,13 +98,13 @@ exports.topicgender = function(req, res) {
 
 
 /**
- * Get Vote by topic and feeling
- * /api/vote/:topic/feeling/:feeling
- * http://localhost:3000/api/vote/550df81f6e1573c77c2f24f8/feeling/5529b1f7f38b849e6b46411a?apiKey=Nelson12345
+ * Get Vote by topic and reaction
+ * /api/vote/:topic/reaction/:reaction
+ * http://localhost:3000/api/vote/550df81f6e1573c77c2f24f8/reaction/5529b1f7f38b849e6b46411a?apiKey=Nelson12345
  */
-exports.topicfeeling = function(req, res) {
+exports.topicreaction = function(req, res) {
 	var query = {};
-	var populate = 'topic feeling appuser';
+	var populate = 'topic reaction appuser';
 	
 	//http://localhost:3000/api/vote/?apiKey=Nelson12345&user=550df5d4d42c5c2a79d142b3
 	if(req.query.user){
@@ -119,10 +119,10 @@ exports.topicfeeling = function(req, res) {
 	    var arr = [];
 
 	    for (var i = items.length - 1; i >= 0; i--) {
-	   		var feeling = items[i].feeling.id;
+	   		var reaction = items[i].reaction.id;
 	   		var topic = items[i].topic.id;
 
-	   		if(feeling == req.params.feeling && topic == req.params.topic){
+	   		if(reaction == req.params.reaction && topic == req.params.topic){
 	   			arr.push(items[i]);
 	   		}
 	   	};
@@ -142,7 +142,7 @@ exports.topicfeeling = function(req, res) {
  */
 exports.gender = function(req, res) {
 	var query = {};
-	var populate = 'topic feeling appuser';
+	var populate = 'topic reaction appuser';
 	
 	//http://localhost:3000/api/vote/?apiKey=Nelson12345&user=550df5d4d42c5c2a79d142b3
 	if(req.query.user){
@@ -173,13 +173,13 @@ exports.gender = function(req, res) {
 }
 
 /**
- * Get all Votes by feeling
- * api/vote/feeling/:feeling
- * http://localhost:3000/api/vote/feeling/{feeling id}?apiKey=Nelson12345
+ * Get all Votes by reaction
+ * api/vote/reaction/:reaction
+ * http://localhost:3000/api/vote/reaction/{reaction id}?apiKey=Nelson12345
  */
-exports.feeling = function(req, res) {
+exports.reaction = function(req, res) {
 	var query = {};
-	var populate = 'topic feeling appuser';
+	var populate = 'topic reaction appuser';
 	
 	//http://localhost:3000/api/vote/?apiKey=Nelson12345&user=550df5d4d42c5c2a79d142b3
 	if(req.query.user){
@@ -194,10 +194,10 @@ exports.feeling = function(req, res) {
 	    var arr = [];
 
 	    for (var i = items.length - 1; i >= 0; i--) {
-	   		var feeling = items[i].feeling.id;
+	   		var reaction = items[i].reaction.id;
 	   		
 
-	   		if(feeling == req.params.feeling){
+	   		if(reaction == req.params.reaction){
 	   			arr.push(items[i]);
 	   		}
 	   	};
@@ -213,7 +213,7 @@ exports.feeling = function(req, res) {
  * Get Vote by ID
  */
 exports.get = function(req, res) {
-	Vote.model.findById(req.params.id).populate('topic feeling').exec(function(err, item) {
+	Vote.model.findById(req.params.id).populate('topic reaction').exec(function(err, item) {
 		
 		if (err) return res.apiError('database error', err);
 		if (!item) return res.apiError('not found');

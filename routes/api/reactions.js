@@ -1,29 +1,29 @@
 var async = require('async'),
 	keystone = require('keystone');
 
-var Feeling = keystone.list('Feeling');
+var Reaction = keystone.list('Reaction');
 
 /**
- * List Feeling
+ * List Reaction
  */
 exports.list = function(req, res) {
 
-	Feeling.model.find().populate('topic').exec(function(err, items) {
+	Reaction.model.find().populate('topic').exec(function(err, items) {
 	    if (err) return res.apiError('database error', err);
 		
 		res.apiResponse({
-			feelings: items
+			reactions: items
 		});
 	});
 
 
 	/*
-	Feeling.model.find(function(err, items) {
+	Reaction.model.find(function(err, items) {
 		
 		if (err) return res.apiError('database error', err);
 		
 		res.apiResponse({
-			feelings: items
+			reactions: items
 		});
 		
 	});
@@ -31,16 +31,16 @@ exports.list = function(req, res) {
 }
 
 /**
- * Get Feeling by ID
+ * Get Reaction by ID
  */
 exports.get = function(req, res) {
-	Feeling.model.findById(req.params.id).populate('topic').exec(function(err, item) {
+	Reaction.model.findById(req.params.id).populate('topic').exec(function(err, item) {
 		
 		if (err) return res.apiError('database error', err);
 		if (!item) return res.apiError('not found');
 		
 		res.apiResponse({
-			feelings: item
+			reactions: item
 		});
 		
 	});
@@ -48,11 +48,11 @@ exports.get = function(req, res) {
 
 
 /**
- * Create a Feeling
+ * Create a Reaction
  */
 exports.create = function(req, res) {
 	
-	var item = new Feeling.model(),
+	var item = new Reaction.model(),
 		data = (req.method == 'POST') ? req.body : req.query;
 	
 	item.getUpdateHandler(req).process(data, function(err) {
@@ -60,17 +60,17 @@ exports.create = function(req, res) {
 		if (err) return res.apiError('error', err);
 		
 		res.apiResponse({
-			feelings: item
+			reactions: item
 		});
 		
 	});
 }
 
 /**
- * Get Post by ID
+ * Get Reaction by ID
  */
 exports.update = function(req, res) {
-	Feeling.model.findById(req.params.id).exec(function(err, item) {
+	Reaction.model.findById(req.params.id).exec(function(err, item) {
 		
 		if (err) return res.apiError('database error', err);
 		if (!item) return res.apiError('not found');
@@ -82,7 +82,7 @@ exports.update = function(req, res) {
 			if (err) return res.apiError('create error', err);
 			
 			res.apiResponse({
-				feelings: item
+				reactions: item
 			});
 			
 		});
@@ -91,10 +91,10 @@ exports.update = function(req, res) {
 }
 
 /**
- * Delete Post by ID
+ * Delete Reaction by ID
  */
 exports.remove = function(req, res) {
-	Feeling.model.findById(req.params.id).exec(function (err, item) {
+	Reaction.model.findById(req.params.id).exec(function (err, item) {
 		
 		if (err) return res.apiError('database error', err);
 		if (!item) return res.apiError('not found');
@@ -115,7 +115,7 @@ exports.remove = function(req, res) {
  * Increase counter by 1
  */
 exports.increaseCount = function(req, res) {
-	Feeling.model.findById(req.params.id).exec(function (err, item) {
+	Reaction.model.findById(req.params.id).exec(function (err, item) {
 		
 		if (err) return res.apiError('database error', err);
 		if (!item) return res.apiError('not found');
@@ -135,7 +135,7 @@ exports.increaseCount = function(req, res) {
 			if (err) return res.apiError('create error', err);
 			
 			res.apiResponse({
-				feelings: item
+				reactions: item
 			});
 			
 		});

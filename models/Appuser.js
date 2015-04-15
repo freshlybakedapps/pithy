@@ -15,7 +15,8 @@ var Appuser = new keystone.List('Appuser', {
 Appuser.add({
 	phone: { type: String, initial: true, required: true, index: true },
 	userid: { type: String, initial: true, required: true, index: true },
-	gender: { type: Types.Select, initial: true, required: true, options: 'Male, Female' }
+	gender: { type: Types.Select, initial: true, required: true, options: 'Male, Female' },
+	dob: { type: Date, required: false  }
 });
 
 
