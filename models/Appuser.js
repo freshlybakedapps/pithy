@@ -13,9 +13,11 @@ var Appuser = new keystone.List('Appuser', {
 });
 
 Appuser.add({
+	name: { type: Types.Name, required: true, index: true, initial: true },
 	phone: { type: String, initial: true, required: true, index: true },
 	userid: { type: String, initial: true, required: true, index: true },
 	gender: { type: Types.Select, initial: true, required: true, options: 'Male, Female' },
+	topic: { type: Types.Relationship, ref: 'Topic', many: true, index: true, initial:true  },   
 	dob: { type: Date, required: false  }
 });
 
@@ -26,5 +28,5 @@ Appuser.add({
  * Registration
  */
 
-Appuser.defaultColumns = 'phone, userid, gender';
+Appuser.defaultColumns = 'name, phone, userid, topic, gender';
 Appuser.register();
