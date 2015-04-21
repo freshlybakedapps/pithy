@@ -20,8 +20,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
+        Twitter.sharedInstance().startWithConsumerKey("CJZy5WCs20awJpD2PTOF6A", consumerSecret: "tLby05DD3p34fxjfDFkf5BCSdykJJeQLM4wz6IB0bRk")
+        Fabric.with([Twitter.sharedInstance()])
         
-        Fabric.with([Twitter()])
+        
+        //Fabric.with([Twitter()])
 
         
         return true

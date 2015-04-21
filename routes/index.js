@@ -117,12 +117,21 @@ exports = module.exports = function(app) {
 	app.post('/api/signout', signout);
 
 	
-	//app.all('/api*', checkAuth);
+	app.all('/api*', checkAuth);
 
 
 	// then bind that middleware in your routes before any paths
 	// that should be protected
-	app.all('/api*', checkAPIKey);
+	//app.all('/api*', checkAPIKey);
+
+	app.get('/api/user', keystone.middleware.api, routes.api.users.list);
+	app.all('/api/user/create', keystone.middleware.api, routes.api.users.create);
+	app.get('/api/user/:id', keystone.middleware.api, routes.api.users.get);
+	app.all('/api/user/:id/update', keystone.middleware.api, routes.api.users.update);
+	app.get('/api/user/:id/remove', keystone.middleware.api, routes.api.users.remove);
+
+	app.all('/api/user/signin', keystone.middleware.api, routes.api.users.signin);
+	app.all('/api/user/signout', keystone.middleware.api, routes.api.users.signout); 
 
 	app.get('/api/appuser', keystone.middleware.api, routes.api.appusers.list);
 	app.all('/api/appuser/create', keystone.middleware.api, routes.api.appusers.create);

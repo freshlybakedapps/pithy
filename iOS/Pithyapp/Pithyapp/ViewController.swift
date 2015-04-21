@@ -23,10 +23,7 @@ class ViewController: UIViewController {
             // Inspect session/error objects
             // play with Digits session
             if (error == nil) {
-                println(session.authToken)
-                println(session.authTokenSecret)
-                println(session.userID)
-                println(session.phoneNumber)
+                
                 
                 self.showAlert()
 
@@ -42,8 +39,17 @@ class ViewController: UIViewController {
         //var instance = Digits.sharedInstance()
         //instance.logOut()
         
+        
+        
         if (Digits.sharedInstance().session() != nil){
             showAlert()
+            
+            
+            Twitter.sharedInstance().APIClient.loadUserWithID("27076384") {
+                (user, error) -> Void in
+                println(error)
+            }
+
         }else{
             self.loginbutton?.hidden = false
         }
@@ -58,6 +64,13 @@ class ViewController: UIViewController {
         alert.show()
         
         self.loginbutton?.hidden = true
+        
+        var session = instance.session()
+        
+        println(session.authToken)
+        println(session.authTokenSecret)
+        println(session.userID)
+        println(session.phoneNumber)
 
     }
 
