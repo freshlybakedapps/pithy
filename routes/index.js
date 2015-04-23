@@ -22,6 +22,8 @@ var keystone = require('keystone'),
 	middleware = require('./middleware'),
 	importRoutes = keystone.importer(__dirname);
 
+var oauthserver = require('oauth2-server');
+
 // Common Middleware
 keystone.pre('routes', middleware.initLocals);
 keystone.pre('render', middleware.flashMessages);
@@ -72,6 +74,17 @@ function checkAPIKey(req, res, next) {
 
 // Setup Route Bindings
 exports = module.exports = function(app) {
+
+	// Oauth2
+	var oauth = oauthserver({
+	    model: require('../models/Client'),
+	    //grants: ['password', 'refresh_token'],
+	    grants: ['password'],
+	    debug: true
+	});
+
+	//app.use(oauth.errorHandler());
+
 	
 	// Views
 	app.get('/', routes.views.index);
@@ -87,7 +100,7 @@ exports = module.exports = function(app) {
 	app.all('/api/user/signout', keystone.middleware.api, routes.api.users.signout); 
 
 	
-	app.all('/api*', checkAuth);
+	//app.all('/api*', checkAuth);
 
 
 	// then bind that middleware in your routes before any paths
@@ -138,5 +151,18 @@ exports = module.exports = function(app) {
 	
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);
+
+	//oauth
+	app.post('/oauth/token', oauth.grant());
+	app.get('/secret', oauth.authorise(), function (req, res) {
+	    if(res){
+	    	res.send('Secret area');
+	    }else{
+	    	res.send('The access token provided is invalid.');
+	    }
+	    
+	});
+
+	//curl --include -X POST -d 'grant_type=password&username=jtubert@hotmail.com&password=cb7978&client_id=abc123&client_secret=secret' http://localhost:3000/oauth/token
 	
 };

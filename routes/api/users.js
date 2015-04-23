@@ -159,8 +159,13 @@ exports.signin = function(req, res) {
 
 // you'll want one for signout too
 exports.signout = function(req, res) {
-  keystone.session.signout(req, res, function() {
-    res.json({ 'signedout': true });
-  });
+	//TODO: delete session object  
+
+
+	/*
+	keystone.session.signout(req, res, function() {
+	    res.json({ 'signedout': true });
+	});
+	*/
 }
 
