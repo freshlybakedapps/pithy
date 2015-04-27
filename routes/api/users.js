@@ -139,7 +139,10 @@ exports.signin = function(req, res) {
     }
     
     keystone.session.signin({ email: user.email, password: req.body.password }, req, res, function(user) {
-      
+      	
+    	console.log(user);
+    	console.log(req.session);
+
     	createSession(user, res, req);
 
       
