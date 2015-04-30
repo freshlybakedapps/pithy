@@ -14,14 +14,14 @@ exports.list = function(req, res) {
 	
 	//http://localhost:3000/api/vote/?apiKey=Nelson12345&user=550df5d4d42c5c2a79d142b3
 	if(req.query.user){
-		query['appuser'] = req.query.user;
+		query['user'] = req.query.user;
 	}
 
 	
 
 	//http://localhost:3000/api/vote/?apiKey=Nelson12345&populate=true
 	if(req.query.populate == "true"){
-		populate = 'topic reaction appuser';
+		populate = 'topic reaction user';
 	}
 
 	//only return votes by this user
@@ -35,7 +35,7 @@ exports.list = function(req, res) {
 	    //http://localhost:3000/api/vote/?apiKey=Nelson12345&populate=true&filterGender=Female
 	   	if(req.query.filterGender){
 	   		for (var i = clone.length - 1; i >= 0; i--) {
-		   		var gender = clone[i].appuser.gender;
+		   		var gender = clone[i].user.gender;
 
 		   		if(gender != req.query.filterGender){
 		   			//console.log(clone[i]);
@@ -66,11 +66,11 @@ exports.topicgender = function(req, res) {
 
 	
 	var query = {};
-	var populate = 'topic reaction appuser';
+	var populate = 'topic reaction user';
 	
 	//http://localhost:3000/api/vote/?apiKey=Nelson12345&user=550df5d4d42c5c2a79d142b3
 	if(req.query.user){
-		query['appuser'] = req.query.user;
+		query['user'] = req.query.user;
 	}
 
 	Vote.model.find(query).populate(populate).exec(function(err, items) {
@@ -81,7 +81,7 @@ exports.topicgender = function(req, res) {
 	    var arr = [];
 
 	    for (var i = items.length - 1; i >= 0; i--) {
-	   		var gender = items[i].appuser.gender;
+	   		var gender = items[i].user.gender;
 	   		var topic = items[i].topic.id;
 
 	   		if(gender == req.params.gender && topic == req.params.topic){
@@ -104,11 +104,11 @@ exports.topicgender = function(req, res) {
  */
 exports.topicreaction = function(req, res) {
 	var query = {};
-	var populate = 'topic reaction appuser';
+	var populate = 'topic reaction user';
 	
 	//http://localhost:3000/api/vote/?apiKey=Nelson12345&user=550df5d4d42c5c2a79d142b3
 	if(req.query.user){
-		query['appuser'] = req.query.user;
+		query['user'] = req.query.user;
 	}
 
 	Vote.model.find(query).populate(populate).exec(function(err, items) {
@@ -142,11 +142,11 @@ exports.topicreaction = function(req, res) {
  */
 exports.gender = function(req, res) {
 	var query = {};
-	var populate = 'topic reaction appuser';
+	var populate = 'topic reaction user';
 	
 	//http://localhost:3000/api/vote/?apiKey=Nelson12345&user=550df5d4d42c5c2a79d142b3
 	if(req.query.user){
-		query['appuser'] = req.query.user;
+		query['user'] = req.query.user;
 	}
 
 	Vote.model.find(query).populate(populate).exec(function(err, items) {
@@ -157,7 +157,7 @@ exports.gender = function(req, res) {
 	    var arr = [];
 
 	    for (var i = items.length - 1; i >= 0; i--) {
-	   		var gender = items[i].appuser.gender;
+	   		var gender = items[i].user.gender;
 	   		
 
 	   		if(gender == req.params.gender){
@@ -179,11 +179,11 @@ exports.gender = function(req, res) {
  */
 exports.reaction = function(req, res) {
 	var query = {};
-	var populate = 'topic reaction appuser';
+	var populate = 'topic reaction user';
 	
 	//http://localhost:3000/api/vote/?apiKey=Nelson12345&user=550df5d4d42c5c2a79d142b3
 	if(req.query.user){
-		query['appuser'] = req.query.user;
+		query['user'] = req.query.user;
 	}
 
 	Vote.model.find(query).populate(populate).exec(function(err, items) {

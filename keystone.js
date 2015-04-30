@@ -91,8 +91,7 @@ keystone.set('nav', {
 	'users': 'users',
 	'topics': 'topics',
 	'reactions': 'reactions',
-	'votes': 'votes',
-	'appusers': 'appusers',
+	'votes': 'votes',	
 	'upvotes': 'upvotes'
 });
 

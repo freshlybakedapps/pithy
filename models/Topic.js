@@ -13,7 +13,7 @@ Topic.add({
     //createdAt: { type: Date, default: Date.now },
     publishedAt: Date,
     status: { type: Types.Select, initial: true, required: true, options: 'Approved, Pending, Denied', default: 'Approved' },
-    author: { type: Types.Relationship, ref: 'Appuser', many: false, index: true, initial:false },
+    author: { type: Types.Relationship, ref: 'User', many: false, index: true, initial:false },
     createdBy: { type: Types.Relationship, ref: 'User', hidden: false },
     
 });
