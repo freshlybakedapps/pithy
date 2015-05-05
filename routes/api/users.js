@@ -97,32 +97,7 @@ exports.remove = function(req, res) {
 	});
 }
 
-function createSession(user, res, req){
-	var Session = keystone.list('Session');
 
-	var sessionId = 'xxxxxx';//should be some random generated string
- 
-	var newSession = new Session.model({
-	    sessionId: sessionId,
-	    userId: user.id
-	});
- 
-
-	newSession.save(function(err) {
-	    // session has been saved
-
-	    return res.json({
-	        success: true,
-	        session: true,
-	        sessionId: sessionId,
-	        date: new Date().getTime(),
-	        userId: user.id
-	      });
-
-
-	    console.log(this);	
-	});
-}
 
 exports.signin = function(req, res) {
   
@@ -141,9 +116,9 @@ exports.signin = function(req, res) {
     keystone.session.signin({ email: user.email, password: req.body.password }, req, res, function(user) {
       	
     	console.log(user);
-    	console.log(req.session);
-
-    	createSession(user, res, req);
+    	
+    	return res.json(user);
+    	
 
       
       

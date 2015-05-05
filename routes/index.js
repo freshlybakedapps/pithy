@@ -78,12 +78,12 @@ exports = module.exports = function(app) {
 	// Oauth2
 	var oauth = oauthserver({
 	    model: require('../models/Client'),
-	    //grants: ['password', 'refresh_token'],
+	    //grants: ['password', 'refresh_token','client_credentials'],
 	    grants: ['password'],
-	    debug: true
+	    debug: false
 	});
 
-	//app.use(oauth.errorHandler());
+	oauth.errorHandler();
 
 	
 	// Views
@@ -96,11 +96,19 @@ exports = module.exports = function(app) {
 	
 
 	// add an API endpoint for signing in _before_ your protected routes
-	app.all('/api/user/signin', keystone.middleware.api, routes.api.users.signin);
-	app.all('/api/user/signout', keystone.middleware.api, routes.api.users.signout); 
-
 	
-	//app.all('/api*', checkAuth);
+	//app.all('/api/user/signout', keystone.middleware.api, routes.api.users.signout); 
+
+
+	//oauth
+	app.post('/oauth/token', oauth.grant());
+	//curl --include -X POST -d 'grant_type=password&username=jtubert@hotmail.com&password=password&client_id=abc123&client_secret=secret' http://localhost:3000/oauth/token
+
+	app.all('/api/user/create', keystone.middleware.api, routes.api.users.create);
+
+	app.all('/api*', oauth.authorise());
+
+	app.all('/api/user/signin', keystone.middleware.api, routes.api.users.signin);
 
 
 	// then bind that middleware in your routes before any paths
@@ -108,7 +116,7 @@ exports = module.exports = function(app) {
 	//app.all('/api*', checkAPIKey);
 
 	app.get('/api/user', keystone.middleware.api, routes.api.users.list);
-	app.all('/api/user/create', keystone.middleware.api, routes.api.users.create);
+	
 	app.get('/api/user/:id', keystone.middleware.api, routes.api.users.get);
 	app.all('/api/user/:id/update', keystone.middleware.api, routes.api.users.update);
 	app.get('/api/user/:id/remove', keystone.middleware.api, routes.api.users.remove);
@@ -145,13 +153,9 @@ exports = module.exports = function(app) {
 
 	app.all('/api/reaction/:id/increaseCount', keystone.middleware.api, routes.api.reactions.increaseCount);
 	
-	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
-	// app.get('/protected', middleware.requireUser, routes.views.protected);
-
-	//oauth
-	app.post('/oauth/token', oauth.grant());
 	
-	app.post('/secret', oauth.authorise(), function (req, res) {
+	
+	app.post('/login', oauth.authorise(), function (req, res) {
 		// Will require a valid access_token
 		keystone.list('User').model.findOne({ email: req.body.username }).exec(function(err, user) {	    
 		    if (err || !user) {
@@ -178,6 +182,6 @@ exports = module.exports = function(app) {
 		  });	  
 		});
 
-	//curl --include -X POST -d 'grant_type=password&username=jtubert@hotmail.com&password=password&client_id=abc123&client_secret=secret' http://localhost:3000/oauth/token
+	
 	
 };

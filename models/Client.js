@@ -35,6 +35,18 @@ model.getAccessToken = function (bearerToken, callback) {
   
 };
 
+model.getUserFromClient = function(clientId, clientSecret, callback){
+  console.log('in getClient (clientId: ' + clientId + ', clientSecret: ' + clientSecret + ')');
+  if (clientSecret === null) {
+    // return OAuthClientsModel.findOne({ client_id: clientId }, callback);
+    return  Client.model.find()
+      .where('client_id', clientId).limit(1).exec(callback);
+  }
+  //OAuthClientsModel.findOne({ client_id: clientId, client_secret: clientSecret }, callback);
+  return  Client.model.find()
+      .where('client_id', clientId).where('client_secret', clientSecret).limit(1).exec(callback);
+}
+
 model.getClient = function (clientId, clientSecret, callback) {
   console.log('in getClient (clientId: ' + clientId + ', clientSecret: ' + clientSecret + ')');
   if (clientSecret === null) {
