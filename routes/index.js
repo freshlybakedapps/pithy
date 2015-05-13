@@ -72,6 +72,7 @@ function checkAPIKey(req, res, next) {
 	return res.status(403).json({ 'error': 'No access. Make sure you pass apiKey query to get access' });
 } 
 
+
 // Setup Route Bindings
 exports = module.exports = function(app) {
 

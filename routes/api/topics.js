@@ -1,13 +1,43 @@
 var async = require('async'),
 	keystone = require('keystone');
+	client = require('../../models/Client');
 
 var Topic = keystone.list('Topic');
+
+
+		
+
+		
+
 
 /**
  * List Topic
  */
 exports.list = function(req, res) {
+	
+	/*
+
+	client.getAccessToken(req.query.access_token, function(err, obj){
+		console.log(obj.userId);
+
+		Topic.model.find().where('createdBy', obj.userId).exec(function(err, items) {
+			if (err) return res.apiError('database error', err);		
+				res.apiResponse({
+					topics: items
+				});
+			})
+
+		
+		//keystone.list('User').model.findOne({ _id: obj.userId}).exec(function(err, user) {
+		//	console.log(user);
+		//})
+	});
+
+	*/
+
+	
 	Topic.model.find(function(err, items) {
+	//Topic.model.find({status:'Approved'}).exec(function(err, items) {
 		
 		if (err) return res.apiError('database error', err);
 		
@@ -16,6 +46,7 @@ exports.list = function(req, res) {
 		});
 		
 	});
+	
 }
 
 /**
