@@ -50,11 +50,64 @@ exports.list = function(req, res) {
 			votes: clone
 		});
 	});
+}
+
+function getVotesByTopic(arr){
+
+	console.log(arr.length);
+
+	var returnArr = [];
+	
+	returnArr["count"] = arr.length;
+
+	return arr;
+
+	/* votes
+		totalVotes
+			reactionTitle
+			percentFemale
+			percentMale
+	
+	*/
+
+}
+
+/**
+ * Get Vote by topic 
+ * /api/vote/:topic/
+ * http://localhost:3000/api/vote/550df81f6e1573c77c2f24f8
+ */
+exports.topic = function(req, res) {
 
 	
-
-
+	var query = {};
+	var populate = 'topic reaction';
 	
+	//http://localhost:3000/api/vote/?apiKey=Nelson12345&user=550df5d4d42c5c2a79d142b3
+	if(req.query.user){
+		query['user'] = req.query.user;
+	}
+
+	Vote.model.find(query).populate(populate).exec(function(err, items) {
+
+	    if (err) return res.apiError('database error', err);
+
+	    
+	    var arr = [];
+
+	    for (var i = items.length - 1; i >= 0; i--) {
+	   		var topic = items[i].topic.id;
+
+	   		if(topic == req.params.topic){
+	   			arr.push(items[i]);
+	   		}
+	   	};
+	   	
+	   	
+	   	res.apiResponse({
+			votes: arr
+		});
+	});
 }
 
 /**
@@ -95,7 +148,6 @@ exports.topicgender = function(req, res) {
 		});
 	});
 }
-
 
 /**
  * Get Vote by topic and reaction

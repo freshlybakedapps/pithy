@@ -15,6 +15,7 @@ Topic.add({
     status: { type: Types.Select, initial: true, required: true, options: 'Approved, Pending, Denied', default: 'Approved' },
     author: { type: Types.Relationship, ref: 'User', many: false, index: true, initial:false },
     createdBy: { type: Types.Relationship, ref: 'User', hidden: false },
+    reactions: { type: Types.Relationship, ref: 'Reaction', many: true, index: true, initial:true },
     
 });
 

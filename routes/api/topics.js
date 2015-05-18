@@ -36,7 +36,7 @@ exports.list = function(req, res) {
 	*/
 
 	
-	Topic.model.find(function(err, items) {
+	Topic.model.find().populate('reactions').exec(function(err, items) {
 	//Topic.model.find({status:'Approved'}).exec(function(err, items) {
 		
 		if (err) return res.apiError('database error', err);
