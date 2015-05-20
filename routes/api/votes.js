@@ -52,15 +52,55 @@ exports.list = function(req, res) {
 	});
 }
 
-function getVotesByTopic(arr){
+function getVotesByTopic(votesArr){
 
-	console.log(arr.length);
+	//console.log(arr.length);
 
-	var returnArr = [];
+	var returnObj = {};
+
+	var totalMales = 0;
+	var totalFemales = 0;
+
+	var reactions = [];
 	
-	returnArr["count"] = arr.length;
+	returnObj["totalVotes"] = votesArr.length;
+	returnObj["votes"] = [];
 
-	return arr;
+	for (var i = votesArr.length - 1; i >= 0; i--) {
+		var obj = {};
+		var title = votesArr[i]["reaction"]["title"];
+		var gender = votesArr[i]["user"]["gender"];
+
+		if(!reactions[title]){
+			reactions[title] = 1;
+		}else{
+			reactions[title]++;
+		}
+
+		//count number of votes for each gender
+		if(gender == "Male"){
+			totalMales++;
+		}else{
+			totalFemales++;
+		}
+		
+		//
+	};
+
+	for(var i in reactions){
+		var obj = {};
+		obj[i] = reactions[i];
+
+		returnObj["votes"].push(obj);
+	}
+
+	console.log(reactions);
+
+	returnObj["percentMale"] = (totalMales/votesArr.length)*100;
+	returnObj["percentFemale"] = (totalFemales/votesArr.length)*100;
+
+
+	return returnObj;
 
 	/* votes
 		totalVotes
@@ -81,7 +121,7 @@ exports.topic = function(req, res) {
 
 	
 	var query = {};
-	var populate = 'topic reaction';
+	var populate = 'topic user reaction';
 	
 	//http://localhost:3000/api/vote/?apiKey=Nelson12345&user=550df5d4d42c5c2a79d142b3
 	if(req.query.user){
@@ -104,9 +144,15 @@ exports.topic = function(req, res) {
 	   	};
 	   	
 	   	
+	   	/*
 	   	res.apiResponse({
 			votes: arr
 		});
+		*/
+		return res.apiResponse({
+			votes: getVotesByTopic(arr)
+		});
+		
 	});
 }
 
