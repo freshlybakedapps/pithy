@@ -71,10 +71,27 @@ function getVotesByTopic(votesArr){
 		var title = votesArr[i]["reaction"]["title"];
 		var gender = votesArr[i]["user"]["gender"];
 
+		
+
 		if(!reactions[title]){
-			reactions[title] = 1;
+			reactions[title] = {};
+			reactions[title]["count"] = 1;			
 		}else{
-			reactions[title]++;
+			reactions[title]["count"]++;
+		}
+
+		if(gender == "Male"){
+			if(!reactions[title]["male"]){
+				reactions[title]["male"]=1;
+			}else{
+				reactions[title]["male"]++;
+			}
+		}else{
+			if(!reactions[title]["female"]){
+				reactions[title]["female"]=1;
+			}else{
+				reactions[title]["female"]++;
+			}
 		}
 
 		//count number of votes for each gender
@@ -89,7 +106,14 @@ function getVotesByTopic(votesArr){
 
 	for(var i in reactions){
 		var obj = {};
-		obj[i] = reactions[i];
+		obj[i] = reactions[i]["count"];
+		obj["male"] = reactions[i]["male"] || 0;
+		obj["female"] = reactions[i]["female"] || 0;
+
+		var total = obj["male"] + obj["female"];
+
+		obj["percentMale"] = (obj["male"]/total)*100;
+		obj["percentFemale"] = (obj["female"]/total)*100;
 
 		returnObj["votes"].push(obj);
 	}

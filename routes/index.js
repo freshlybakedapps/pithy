@@ -84,6 +84,9 @@ exports = module.exports = function(app) {
 	    debug: false
 	});
 
+
+	console.log(oauth.grant);
+
 	oauth.errorHandler();
 
 	
